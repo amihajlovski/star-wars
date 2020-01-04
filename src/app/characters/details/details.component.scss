@@ -1,0 +1,24 @@
+mat-card {
+  margin: 30px;
+  .details-container {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .resident {
+      width: 100%;
+      color: white;
+      display: flex;
+    }
+
+    .resident:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

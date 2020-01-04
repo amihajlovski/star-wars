@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <mat-progress-bar color="primary" mode="indeterminate"*ngIf="!character"></mat-progress-bar>
+    <div *ngIf="character">
+      <h1>{{ character.name}} </h1>
+      <div class="details-container">
+        <div class="info">
+          <p>Height: </p>
+          <p>{{ character.height }}</p>
+        </div>
+        <div class="info">
+          <p>Mass: </p>
+          <p>{{ character.mass }}</p>
+        </div>
+        <div class="info">
+          <p>Birth year: </p>
+          <p>{{ character.birth_year }}</p>
+        </div>
+        <div class="info">
+          <p>Planet: </p>
+          <p>{{ character.planet?.name }}</p>
+        </div>
+        <div>
+          <p>Other residents from planet <strong>{{ character.planet?.name }}</strong></p>
+          <div *ngFor="let resident of character.planet.residents;let i=index;">
+            <p class="resident" *ngIf="resident.name !== character.name" (click)="openDetails(resident)"> {{i + 1}}. {{ resident.name }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
